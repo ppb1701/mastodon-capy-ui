@@ -5031,6 +5031,21 @@ div[tabindex="-1"]
 .layout-multiple-columns .search__popout__menu__item.selected {
   background-color: var(--color-dark) !important;
   border-color: var(--color-accent) !important;
+  outline: 2px solid var(--color-accent) !important;
+}
+
+/* Remove any filters/opacity dimming emojis */
+.layout-multiple-columns .status__content .emoji,
+.layout-multiple-columns .status__content img.emojione,
+.layout-multiple-columns .status__content img[alt*="emoji"],
+.layout-multiple-columns .status__content img[src*="emoji"],
+.layout-multiple-columns .display-name .emoji,
+.layout-multiple-columns .reply-indicator__content .emoji,
+body.layout-multiple-columns img.emoji,
+body.layout-multiple-columns .emojione {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
 }
 
 .layout-multiple-columns .detailed-status__action-bar button.icon-button.star-icon.icon-button--with-counter.star-icon.activate::after,

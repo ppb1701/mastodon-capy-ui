@@ -5649,6 +5649,21 @@ body.layout-single-column.scroll-down .tabs-bar__portal {
 .layout-single-column .search__popout__menu__item.selected {
   background-color: var(--color-dark) !important;
   border-color: var(--color-accent) !important;
+  outline: 2px solid var(--color-accent) !important;
+}
+
+/* Remove any filters/opacity dimming emojis */
+.layout-single-column .status__content .emoji,
+.layout-single-column .status__content img.emojione,
+.layout-single-column .status__content img[alt*="emoji"],
+.layout-single-column .status__content img[src*="emoji"],
+.layout-single-column .display-name .emoji,
+.layout-single-column .reply-indicator__content .emoji,
+body.layout-single-column img.emoji,
+body.layout-single-column .emojione {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
 }
 
 .layout-single-column .detailed-status__action-bar button.icon-button.star-icon.icon-button--with-counter.star-icon.activate::after,
