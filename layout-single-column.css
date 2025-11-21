@@ -1,9 +1,16 @@
 /* Mastodon Capy UI by @ppb1701@ppb.social
-   1.0.0 */
+   1.0.1 */
 
 /*Based on
   Mastodon Bird UI by @rolle@mementomori.social
    3.0.0 */
+
+/* Force blockquote quote marks to be electric blue */
+.status__content blockquote::before,
+blockquote::before {
+  background-color: var(--color-quote, #1e80c7) !important;
+  color: var(--color-quote, #1e80c7) !important;
+}
 
 /* CSS variables */
 :root {
@@ -64,6 +71,7 @@
   --color-link: var(--color-accent);
   --color-bg-compose-form: rgb(54 56 63 / 40%);
   --color-bg-compose-form-focus: rgb(54 56 63 / 80%);
+  --color-quote: #1e80c7;
 
   /* In the original UI this color is lighten($ui-base-color, 12%) */
   --color-outer-space: #42485a;
@@ -307,6 +315,7 @@ body.theme-mastodon-light.layout-single-column {
   --color-bg-compose-form-focus: rgb(180 200 220 / 30%);
   --color-hashtag: var(--color-accent-dark);
   --color-mention: var(--color-accent-dark);
+  --color-quote: #1e80c7;
 
   /* Misc */
   --compose-form-linear-gradient: linear-gradient(
@@ -416,6 +425,7 @@ body.theme-mastodon-light.layout-single-column {
 /* High Contrast theme */
 body.theme-contrast.layout-single-column {
   --color-dim: #8bb4d8;
+  --color-quote: #00aaff;
 
   /* Icons */
   --icon-boost: url("data:image/svg+xml, %3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 136 136'%3E%3Cpath fill='%238bb4d8' d='M51 23.8c0 .4 2.4 3.1 5.3 6l5.3 5.2h34.6l3.4 3.4 3.4 3.4v47.4l-6.7-6.1-6.8-6.1-4 4-4 4 13.8 13.7 13.7 13.8L122.5 99c7.4-7.4 13.5-13.7 13.5-14-.1-.3-1.7-2.3-3.6-4.4l-3.5-4-6.8 6.8-6.9 6.9-.4-25.4c-.3-23.8-.4-25.7-2.5-29.4-2.7-5.1-5.7-7.9-11.3-10.4-4.1-1.9-6.5-2.1-27.2-2.1-12.6 0-22.8.4-22.8.8zM13 37.5-.4 51l3.8 3.9 3.9 4 6.6-6.1 6.6-6 .5 24.4c.5 26.3.7 27.2 6.6 33.2 6 5.9 6.8 6.1 33.2 6.4 13.3.2 24.2-.1 24.2-.5 0-.5-2.2-3-4.8-5.6l-4.8-4.7-15.9-.1c-17.7 0-21.7-.9-24.9-5.2-2-2.7-2.1-4.2-2.3-26.5l-.2-23.6 6.7 6.7C42.5 55 46 58 46.6 58c.5 0 2.5-1.6 4.4-3.5l3.4-3.5L41 37.5C33.6 30.1 27.3 24 27 24c-.3 0-6.6 6.1-14 13.5z'/%3E%3C/svg%3E%0A");
@@ -766,6 +776,102 @@ body.layout-single-column {
 
 .status__quote:not(.status__quote--error) .status {
   min-height: 40px;
+}
+
+/* Quote post theming - electric blue accent */
+/* Override the --color-quote variable */
+.layout-single-column .status__content,
+.status__content {
+  --color-quote: #1e80c7 !important;
+}
+
+.layout-single-column .status__quote,
+.status__quote {
+  border: 1px solid rgba(30, 128, 199, 0.3) !important;
+  border-left: 4px solid #1e80c7 !important;
+  background: rgba(30, 128, 199, 0.08) !important;
+  outline: none !important;
+}
+
+.layout-single-column .status__quote:hover,
+.status__quote:hover {
+  background: rgba(30, 128, 199, 0.12) !important;
+  border-color: rgba(30, 128, 199, 0.4) !important;
+  border-left-color: #1e80c7 !important;
+}
+
+/* Light theme quote styling */
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-single-column .status__content,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content {
+  --color-quote: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-single-column .status__quote,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__quote {
+  border: 1px solid rgba(30, 128, 199, 0.25) !important;
+  border-left: 4px solid #1e80c7 !important;
+  background: rgba(30, 128, 199, 0.06) !important;
+  outline: none !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-single-column .status__content blockquote,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content blockquote {
+  border-left-color: #1e80c7 !important;
+  color: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-single-column .status__content blockquote::before,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content blockquote::before {
+  color: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-single-column .status__content blockquote::after,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content blockquote::after {
+  color: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-single-column .status__quote:hover,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__quote:hover {
+  background: rgba(30, 128, 199, 0.10) !important;
+  border-color: rgba(30, 128, 199, 0.35) !important;
+  border-left-color: #1e80c7 !important;
+}
+
+/* High contrast theme quote styling */
+body.theme-contrast .layout-single-column .status__content,
+body.theme-contrast .status__content {
+  --color-quote: #00aaff !important;
+}
+
+body.theme-contrast .layout-single-column .status__quote,
+body.theme-contrast .status__quote {
+  border: 1px solid rgba(0, 170, 255, 0.4) !important;
+  border-left: 4px solid #00aaff !important;
+  background: rgba(0, 170, 255, 0.10) !important;
+  outline: none !important;
+}
+
+body.theme-contrast .layout-single-column .status__content blockquote,
+body.theme-contrast .status__content blockquote {
+  border-left-color: #00aaff !important;
+  color: #00aaff !important;
+}
+
+body.theme-contrast .layout-single-column .status__content blockquote::before,
+body.theme-contrast .status__content blockquote::before {
+  color: #00aaff !important;
+}
+
+body.theme-contrast .layout-single-column .status__content blockquote::after,
+body.theme-contrast .status__content blockquote::after {
+  color: #00aaff !important;
+}
+
+body.theme-contrast .layout-single-column .status__quote:hover,
+body.theme-contrast .status__quote:hover {
+  background: rgba(0, 170, 255, 0.15) !important;
+  border-color: rgba(0, 170, 255, 0.5) !important;
+  border-left-color: #00aaff !important;
 }
 
 /* Disabled quote post selection */
@@ -6162,6 +6268,36 @@ body.layout-single-column .emojione {
   85% {
     transform: scale(1, 1);
   }
+}
+
+/* Blockquote styling */
+.layout-single-column .status__content blockquote,
+.status__content blockquote {
+  border-left-color: #1e80c7 !important;
+}
+
+.layout-single-column .status__content blockquote,
+.layout-single-column .status__content blockquote *,
+.layout-single-column .status__content blockquote p,
+.status__content blockquote,
+.status__content blockquote *,
+.status__content blockquote p {
+  color: #1e80c7 !important;
+}
+
+blockquote::before {
+  color: #1e80c7 !important;
+}
+
+.layout-single-column .status__content blockquote::before,
+.layout-single-column .status__content blockquote::after,
+.layout-single-column .status__content blockquote p::before,
+.layout-single-column .status__content blockquote p::after,
+.status__content blockquote::before,
+.status__content blockquote::after,
+.status__content blockquote p::before,
+.status__content blockquote p::after {
+  color: #1e80c7 !important;
 }
 
 /* Stars enabled */

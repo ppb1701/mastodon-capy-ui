@@ -1,9 +1,16 @@
 /* Mastodon Capy UI by @ppb1701@ppb.social
-   1.0.0 */
+   1.0.1 */
 
 /*Based on
   Mastodon Bird UI by @rolle@mementomori.social
    3.0.0 */
+
+/* Force blockquote quote marks to be electric blue */
+.status__content blockquote::before,
+blockquote::before {
+  background-color: var(--color-quote, #1e80c7) !important;
+  color: var(--color-quote, #1e80c7) !important;
+}
 
 /* CSS variables */
 :root {
@@ -63,6 +70,7 @@
   --color-link: var(--color-accent);
   --color-bg-compose-form: rgb(54 56 63 / 0.4);
   --color-bg-compose-form-focus: rgb(54 56 63 / 0.8);
+  --color-quote: #1e80c7;
 
   /* In the original UI this color is lighten($ui-base-color, 12%) */
   --color-outer-space: #42485a;
@@ -224,6 +232,7 @@ body.theme-contrast.layout-multiple-columns {
   --logo: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 100 100"%3E%3C!-- Capybara body --%3E%3Cellipse cx="50" cy="58" rx="28" ry="24" fill="%23a0826d" stroke="%231e80c7" stroke-width="2"/%3E%3C!-- Capybara head --%3E%3Ccircle cx="50" cy="35" r="18" fill="%23a0826d" stroke="%231e80c7" stroke-width="2"/%3E%3C!-- Ears --%3E%3Cellipse cx="40" cy="24" rx="5" ry="8" fill="%23a0826d" stroke="%231e80c7" stroke-width="1.5"/%3E%3Cellipse cx="60" cy="24" rx="5" ry="8" fill="%23a0826d" stroke="%231e80c7" stroke-width="1.5"/%3E%3C!-- Eyes --%3E%3Ccircle cx="44" cy="32" r="2.5" fill="%23040404"/%3E%3Ccircle cx="56" cy="32" r="2.5" fill="%23040404"/%3E%3C!-- Nose --%3E%3Cellipse cx="50" cy="40" rx="4" ry="3" fill="%23704f3d"/%3E%3C!-- Smile --%3E%3Cpath d="M 46 42 Q 50 44 54 42" stroke="%23704f3d" stroke-width="1.5" fill="none"/%3E%3C!-- Front legs --%3E%3Crect x="38" y="75" width="8" height="15" rx="4" fill="%23a0826d" stroke="%231e80c7" stroke-width="1.5"/%3E%3Crect x="54" y="75" width="8" height="15" rx="4" fill="%23a0826d" stroke="%231e80c7" stroke-width="1.5"/%3E%3C!-- Smartphone in hand --%3E%3Crect x="62" y="50" width="14" height="22" rx="2" fill="%231e80c7" stroke="%23040404" stroke-width="1.5"/%3E%3Crect x="64" y="52" width="10" height="16" fill="%23e0f0ff"/%3E%3Ccircle cx="69" cy="70" r="1.5" fill="%23ffffff"/%3E%3C!-- Stuffed elephant on head --%3E%3C!-- Elephant body --%3E%3Cellipse cx="50" cy="12" rx="7" ry="5" fill="%23ff8c42" stroke="%231e80c7" stroke-width="1"/%3E%3C!-- Elephant head --%3E%3Ccircle cx="50" cy="8" r="4" fill="%23ff8c42" stroke="%231e80c7" stroke-width="1"/%3E%3C!-- Elephant trunk --%3E%3Cpath d="M 50 10 Q 48 13 49 15" stroke="%23ff8c42" stroke-width="2.5" fill="none" stroke-linecap="round"/%3E%3C!-- Elephant ears --%3E%3Cellipse cx="47" cy="7" rx="2" ry="3" fill="%23ff8c42" stroke="%231e80c7" stroke-width="0.8"/%3E%3Cellipse cx="53" cy="7" rx="2" ry="3" fill="%23ff8c42" stroke="%231e80c7" stroke-width="0.8"/%3E%3C!-- Elephant eyes --%3E%3Ccircle cx="48" cy="7" r="0.8" fill="%23040404"/%3E%3Ccircle cx="52" cy="7" r="0.8" fill="%23040404"/%3E%3C/svg%3E');
 
   --color-dim: #8bb4d8;
+  --color-quote: #00aaff;
 
   /* Rounded corners for high contrast theme */
   &.layout-multiple-columns .dropdown-menu,
@@ -320,6 +329,7 @@ body.theme-mastodon-light.layout-multiple-columns {
   --color-bg-compose-form-focus: rgb(180 200 220 / 0.3);
   --color-hashtag: var(--color-accent-dark);
   --color-mention: var(--color-accent-dark);
+  --color-quote: #1e80c7;
 
   /* Misc */
   --compose-form-linear-gradient: linear-gradient(
@@ -720,6 +730,132 @@ body.layout-multiple-columns {
 .layout-multiple-columns a.status-card:focus .status-card__host,
 .layout-multiple-columns a.status-card:hover .status-card__host {
   color: var(--color-dim);
+}
+
+/* Quote post theming - electric blue accent */
+/* Override the --color-quote variable */
+.layout-multiple-columns .status__content,
+.status__content {
+  --color-quote: #1e80c7 !important;
+}
+
+.layout-multiple-columns .status__quote,
+.status__quote {
+  border: 1px solid rgba(30, 128, 199, 0.3) !important;
+  border-left: 4px solid #1e80c7 !important;
+  background: rgba(30, 128, 199, 0.08) !important;
+  outline: none !important;
+}
+
+/* Blockquote styling */
+.layout-multiple-columns .status__content blockquote,
+.status__content blockquote {
+  border-left-color: #1e80c7 !important;
+}
+
+.layout-multiple-columns .status__content blockquote,
+.layout-multiple-columns .status__content blockquote *,
+.layout-multiple-columns .status__content blockquote p,
+.status__content blockquote,
+.status__content blockquote *,
+.status__content blockquote p {
+  color: #1e80c7 !important;
+}
+
+blockquote::before {
+  color: #1e80c7 !important;
+}
+
+.layout-multiple-columns .status__content blockquote::before,
+.layout-multiple-columns .status__content blockquote::after,
+.layout-multiple-columns .status__content blockquote p::before,
+.layout-multiple-columns .status__content blockquote p::after,
+.status__content blockquote::before,
+.status__content blockquote::after,
+.status__content blockquote p::before,
+.status__content blockquote p::after {
+  color: #1e80c7 !important;
+}
+
+.layout-multiple-columns .status__quote:hover,
+.status__quote:hover {
+  background: rgba(30, 128, 199, 0.12) !important;
+  border-color: rgba(30, 128, 199, 0.4) !important;
+  border-left-color: #1e80c7 !important;
+}
+
+/* Light theme quote styling */
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-multiple-columns .status__content,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content {
+  --color-quote: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-multiple-columns .status__quote,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__quote {
+  border: 1px solid rgba(30, 128, 199, 0.25) !important;
+  border-left: 4px solid #1e80c7 !important;
+  background: rgba(30, 128, 199, 0.06) !important;
+  outline: none !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-multiple-columns .status__content blockquote,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content blockquote {
+  border-left-color: #1e80c7 !important;
+  color: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-multiple-columns .status__content blockquote::before,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content blockquote::before {
+  color: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-multiple-columns .status__content blockquote::after,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__content blockquote::after {
+  color: #1e80c7 !important;
+}
+
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .layout-multiple-columns .status__quote:hover,
+body:is(.theme-mastodon-light, .theme-mastodon-bird-ui-light) .status__quote:hover {
+  background: rgba(30, 128, 199, 0.10) !important;
+  border-color: rgba(30, 128, 199, 0.35) !important;
+  border-left-color: #1e80c7 !important;
+}
+
+/* High contrast theme quote styling */
+body.theme-contrast .layout-multiple-columns .status__content,
+body.theme-contrast .status__content {
+  --color-quote: #00aaff !important;
+}
+
+body.theme-contrast .layout-multiple-columns .status__quote,
+body.theme-contrast .status__quote {
+  border: 1px solid rgba(0, 170, 255, 0.4) !important;
+  border-left: 4px solid #00aaff !important;
+  background: rgba(0, 170, 255, 0.10) !important;
+  outline: none !important;
+}
+
+body.theme-contrast .layout-multiple-columns .status__content blockquote,
+body.theme-contrast .status__content blockquote {
+  border-left-color: #00aaff !important;
+  color: #00aaff !important;
+}
+
+body.theme-contrast .layout-multiple-columns .status__content blockquote::before,
+body.theme-contrast .status__content blockquote::before {
+  color: #00aaff !important;
+}
+
+body.theme-contrast .layout-multiple-columns .status__content blockquote::after,
+body.theme-contrast .status__content blockquote::after {
+  color: #00aaff !important;
+}
+
+body.theme-contrast .layout-multiple-columns .status__quote:hover,
+body.theme-contrast .status__quote:hover {
+  background: rgba(0, 170, 255, 0.15) !important;
+  border-color: rgba(0, 170, 255, 0.5) !important;
+  border-left-color: #00aaff !important;
 }
 
 /* Disabled quote post selection */
