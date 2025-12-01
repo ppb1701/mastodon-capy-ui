@@ -10,12 +10,21 @@ This is a Capy UI variant of [Roni Laukkarinen's Mastodon BirdUI](https://github
 - **Electric blue accent color** (#1e80c7) throughout the interface
 - **Capybara mascot logo** (with smartphone and elephant) for all three themes (dark, light, high contrast)
 - **Stars instead of hearts** for favorites with animation
+- **Gradient background** - Subtle radial gradient from electric blue at top fading to dark (kagi-style)
 - **Rounded corners**: 16px for dropdowns/popups, 32px for compose/search
 - **Tricorn Black** (#1c1d21) main background
 - **Benjamin Moore Onyx** (#36383f) for compose/search areas
 - **Improved scrollbar styling** with electric blue hover states
 - **Enhanced focus indicators** in electric blue
 - **Notification badge glow effects** for better visibility
+
+### Customization Options
+
+**Gradient Background Toggle**: Both CSS files include an easy toggle to switch between:
+- Gradient background (default) - atmospheric blue glow at the top
+- Solid background (original) - flat dark background
+
+To switch, simply comment/uncomment the marked sections near the top of each CSS file.
 
 ---
 

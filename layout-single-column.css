@@ -468,14 +468,60 @@ body.theme-contrast.layout-single-column {
   width: calc(100% - 30px) !important;
 }
 
+/* ----------------------------------------------------------
+   GRADIENT BACKGROUND TOGGLE
+   ----------------------------------------------------------
+   Choose one option by commenting/uncommenting:
+   - Option 1 (DEFAULT): Gradient background (kagi-style)
+   - Option 2: Solid background (original)
+   ---------------------------------------------------------- */
+
+/* Option 1: Gradient background (DEFAULT - ACTIVE) */
+html,
+body.layout-single-column {
+  background-color: var(--color-bg);
+  background-image: radial-gradient(
+    circle at top,
+    rgba(30, 128, 199, 0.23),
+    transparent 60%
+  );
+  background-attachment: fixed;
+  color: var(--color-fg);
+}
+
+/* Force gradient background overlay */
+body.layout-single-column::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-bg);
+  background-image: radial-gradient(
+    circle at top,
+    rgba(30, 128, 199, 0.23),
+    transparent 60%
+  );
+  z-index: -9999;
+  pointer-events: none;
+}
+
+/* Option 2: Solid background (COMMENT OUT OPTION 1 ABOVE, THEN UNCOMMENT THIS) */
+/*
+html,
 body.layout-single-column {
   background-color: var(--color-bg);
   color: var(--color-fg);
 }
+*/
 
 .layout-single-column .ui {
   display: flex;
   width: 100%;
+  background: transparent;
 }
 
 /* Text color */
